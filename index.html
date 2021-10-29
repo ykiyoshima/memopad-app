@@ -4,25 +4,107 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webドラム</title>
+    <title>Web Drums</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Webドラム</h1>
-
     <audio id="low" src="audio/low.mp3" type="audio/mpeg"></audio>
     <audio id="high" src="audio/high.mp3" type="audio/mpeg"></audio>
-    <audio id="kick" src="audio/kick.mp3" type="audio/mpeg"></audio>
-    <audio id="snare" src="audio/snare.mp3" type="audio/mpeg"></audio>
-    <audio id="hihat" src="audio/hihat.mp3" type="audio/mpeg"></audio>
+    <audio id="kick-sound" src="audio/kick.mp3" type="audio/mpeg" loop=""></audio>
+    <audio id="snare-sound" src="audio/snare.mp3" type="audio/mpeg"></audio>
+    <audio id="c-hihat-sound" src="audio/c-hihat.mp3" type="audio/mpeg"></audio>
+    <audio id="o-hihat-sound" src="audio/o-hihat.mp3" type="audio/mpeg"></audio>
+    <audio id="tom1-sound" src="audio/tom1.mp3" type="audio/mpeg"></audio>
+    <audio id="tom2-sound" src="audio/tom2.mp3" type="audio/mpeg"></audio>
+    <audio id="tom3-sound" src="audio/tom3.mp3" type="audio/mpeg"></audio>
+    <audio id="crash-sound" src="audio/crash.mp3" type="audio/mpeg"></audio>
 
-    <div id="metronome">
-        <div id="start"><p>start</p></div>
-        <div id="stop"><p>stop</p></div>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Web Drums</h1>
+            <i id="help" class="far fa-question-circle"></i>
+
+            <div id="control">
+                <div id="rec-start" class="btn active"><p>Start Rec.</p></div>
+                <div id="rec-stop" class="btn"><p>Stop Rec.</p></div>
+                <div id="play-start" class="btn active"><p>Play Music</p></div>
+                <div id="play-stop" class="btn"><p>Stop Music</p></div>
+                <div id="fix" class="btn"><p>Fix Music</p></div>
+                <div id="fixed-play" class="btn"><p>Play Fixed Music</p></div>
+            </div>
+
+            <div id="images">
+                <div id="kick">
+                    <img src="img/kick.png" alt="">
+                    <p>Kick</p>
+                    <p>K</p>
+                </div>
+                <div id="snare">
+                    <img src="img/snare.png" alt="">
+                    <p>Snare</p>
+                    <p>S</p>
+                </div>
+                <div id="c-hihat">
+                    <img src="img/hihat.png" alt="">
+                    <p>Closed Hihat</p>
+                    <p>H</p>
+                </div>
+                <div id="o-hihat">
+                    <img src="img/hihat.png" alt="">
+                    <p>Opened Hihat</p>
+                    <p>J</p>
+                </div>
+                <div id="tom1">
+                    <img src="img/tom1.png" alt="">
+                    <p>High Tom</p>
+                    <p>T</p>
+                </div>
+                <div id="tom2">
+                    <img src="img/tom2.png" alt="">
+                    <p>Low Tom</p>
+                    <p>Y</p>
+                </div>
+                <div id="tom3">
+                    <img src="img/tom3.png" alt="">
+                    <p>Floor Tom</p>
+                    <p>U</p>
+                </div>
+                <div id="crash">
+                    <img src="img/crash.png" alt="">
+                    <p>Crash Cymbal</p>
+                    <p>C</p>
+                </div>
+            </div>
+
+            <div id="storage">
+                <div id="save" class="btn"><p>Save Fixed Music</p></div>
+                <div id="tempo" class="btn"><select></select>
+                    <div id="control-tempo">
+                        <div><p id="tempo-save">Save</p><span id="current-tempo"></span></div>
+                        <div><p id="tempo-change">Change</p><span id="new-tempo"></span></div>
+                    </div>
+                </div>
+                <div id="clear" class="btn"><p>Clear Fixed Music</p></div>
+            </div>
+            <p id="tempo-text">Tempo(BPM)</p>
+        </div>
     </div>
 
-    <div id="play">
-        <p>再生</p>
+    <div id="modal">
+        <div>
+            <h2>How to Use</h2>
+            <ol>
+                <li>演奏のテンポを決めてすぐ右のSaveボタンを押す</li>
+                <li>「Start Rec.」ボタンを押す</li>
+                <li><span>メトロノームが8回鳴った後</span>、各パーツに対応するキーをタイミングよく押す</li>
+                <li>「Stop Rec.」ボタンを押す</li>
+                <li>「Play Music」ボタンを押す → 録音した演奏が再生される</li>
+                <li>「Fix Music」ボタンを押す → 録音した際の微妙な入力のズレが補正される</li>
+                <li>「Play Fixed Music」ボタンを押す → ズレを補正した演奏が再生される</li>
+            </ol>
+            <i id="close" class="far fa-times-circle"></i>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
